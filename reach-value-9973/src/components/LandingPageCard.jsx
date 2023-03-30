@@ -1,46 +1,54 @@
 import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Flex, Box, VStack, Image, HStack, Stack, Avatar } from '@chakra-ui/react'
-export default function LandingPageCard() {
+import { Link, Navigate } from "react-router-dom"
+export default function LandingPageCard({ createdBy, createdByImage, followers, heading, landingImage, like }) {
 
     return (
-        <Box>
-            <Card maxW='350' >
-                <CardHeader>
 
-                    <Heading fontSize={25} textAlign="left">
-                        title
-                    </Heading>
-                </CardHeader>
+        <Card maxW='350' >
+            <CardHeader pt={2} pb={0} mb={0} >
+
+                <Box>
+                    <Text letterSpacing={"4px"} fontSize={15} pb={0} mb={0} textAlign="left">
+                        {heading}
+                    </Text>
+                </Box>
+            </CardHeader>
 
 
-                <CardFooter
-                    justify='space-between'
-                    flexWrap='wrap'
-                    sx={{
-                        '& > button': {
-                            minW: '136px',
-                        },
-                    }}
-                >
-                    <Image
-                        objectFit='cover'
-                        src='https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
-                        alt='Chakra UI'
-                    />
-                    <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
-                        <Avatar name='Segun Adebayo' size={"sm"} src='https://bit.ly/sage-adebayo' />
+            <CardFooter
+                mt={0}
+                justify='space-between'
+                flexWrap='wrap' >
+                <img
+                    width={"100%"} src={landingImage}
+                    alt={heading}
+                />
+                <Flex gap='2' alignItems='center' flexWrap='wrap'>
+                    <Avatar name={createdBy} size={"sm"} src={createdByImage} />
 
-                        <Box>
-                            <Heading size='sm'>Segun Adebayo</Heading>
-                            <Text>Creator, Chakra UI</Text>
-                        </Box>
-                    </Flex>
-                    <Flex>
-                        <Avatar name='Segun Adebayo' src='https://bit.ly/sage-adebayo'
+                    <Box>
+                        <Heading size='sm'>{createdBy}</Heading>
+                        <Text>{followers} followers</Text>
+                    </Box>
+                </Flex>
+                <Flex>
+                    <VStack>
+                        <Avatar name='Segun Adebayo' src='https://www.citypng.com/public/uploads/preview/-516103803914ac88ggaa5.png'
                             mr={"10px"} />
-                        <Avatar name='WhatsApp' src='https://drive.google.com/file/d/1C7mHctVwA90us6_ZajD-jQG0Kz6HIQI-/view?usp=sharing' />
-                    </Flex>
-                </CardFooter>
-            </Card>
-        </Box>
+                        <Text size={"sm"}>{like} Likes</Text>
+                    </VStack>
+                    <VStack>
+                        <Link to={"https://api.whatsapp.com/send?text=Checkout+this+amazing+fashion+blog+at+Limeroad%21%20Stock+Up+On+Regulars%21%20https://www.limeroad.com/formal-trousers-stock-up-on-regulars-by-kanika-crystal-st640ef670fd1d3c4563ab02ed?src_id=feed_story__0"}>
+
+
+                            <Avatar name='WhatsApp' src='https://freepngimg.com/thumb/logo/70086-logo-whatsapp-computer-viber-icons-free-download-image-thumb.png' />
+                            <Text>Share</Text>
+
+                        </Link>
+                    </VStack>
+                </Flex>
+            </CardFooter>
+        </Card>
+
     )
 }

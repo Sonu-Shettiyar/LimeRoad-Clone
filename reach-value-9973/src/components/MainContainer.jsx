@@ -3,13 +3,12 @@ import React from "react";
 import { Tabs, TabList, TabPanels, Tab, TabPanel, TabIndicator } from '@chakra-ui/react'
 import WomenContainer from "./WomenContainer";
 import MenContainer from "./MenContainer";
-import PauseOnHover from "./SlickSlider";
 export default function MainContainer() {
 
 
     return (
         <div style={{ backgroundColor: "rgba(169, 154, 154, 0.08)" }}>
-            <div style={{ border: '1px solid red', width: "65%", margin: "auto", marginBottom: "0px" }}>
+            <div style={{ border: '1px solid red', width: "70%", margin: "auto", marginBottom: "0px" }}>
 
 
                 <Tabs
