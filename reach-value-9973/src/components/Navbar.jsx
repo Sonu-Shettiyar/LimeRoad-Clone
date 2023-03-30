@@ -1,7 +1,9 @@
 import { Box, Flex, Heading, Text, Image, HStack, ButtonGroup, Spacer, VStack, Stack, Container } from "@chakra-ui/react"
 import React from "react"
 import { PhoneIcon, AddIcon, WarningIcon, Search2Icon } from '@chakra-ui/icons'
-
+import { AiOutlineBook } from "react-icons/ai";
+import { GiShoppingCart } from "react-icons/gi"
+import { RiAccountCircleLine } from "react-icons/ri"
 export default function Navbar() {
 
 
@@ -32,24 +34,23 @@ export default function Navbar() {
                 <Spacer />
 
 
-                <ButtonGroup gap='2'>
+                <ButtonGroup gap='10'>
 
 
 
 
-                    <VStack>
+                    <VStack pt={3} >
 
-
-                        <AddIcon boxSize={5} />
+                        <AiOutlineBook fontSize={20} />
                         <Text fontSize="11">
                             SCRAPBOOK</Text>
                     </VStack>
 
 
 
-                    <VStack>
+                    <VStack pt={3}>
                         {/* <Search2Icon boxSize={5} /> */}
-                        <Search2Icon w={5} h={5} color="red.500" />
+                        <Search2Icon fontSize={20} />
 
                         <Text fontSize="11">
 
@@ -57,15 +58,15 @@ export default function Navbar() {
                         </Text>
                     </VStack>
 
-                    <VStack>
-                        <PhoneIcon w={5} h={5} />
+                    <VStack pt={2} >
+                        <GiShoppingCart fontSize={26} />
                         <Text fontSize="11">
                             CART
                         </Text>
                     </VStack>
 
-                    <VStack>
-                        <PhoneIcon w={5} h={5} />
+                    <VStack pt={2} >
+                        <RiAccountCircleLine fontSize={26} />
 
                         <Text fontSize="11">
                             PROFILE
