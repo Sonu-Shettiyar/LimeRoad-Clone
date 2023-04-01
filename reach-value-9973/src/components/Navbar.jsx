@@ -1,9 +1,14 @@
-import { Box, Flex, Heading, Text, Image, HStack, ButtonGroup, Spacer, VStack, Stack, Container } from "@chakra-ui/react"
+import { Box, Flex, Heading, Text, Image, HStack, ButtonGroup, Spacer, VStack, Stack, Container, Menu, MenuList, MenuItem, MenuButton, Button } from "@chakra-ui/react"
 import React from "react"
-import { PhoneIcon, AddIcon, WarningIcon, Search2Icon } from '@chakra-ui/icons'
+import { PhoneIcon, AddIcon, WarningIcon, Search2Icon, ChevronDownIcon } from '@chakra-ui/icons';
 import { AiOutlineBook } from "react-icons/ai";
-import { GiShoppingCart } from "react-icons/gi"
-import { RiAccountCircleLine } from "react-icons/ri"
+import { GiShoppingCart } from "react-icons/gi";
+import { RiAccountCircleLine } from "react-icons/ri";
+import WomenNav from "./WomenNav";
+import MenNav from "./MenNav";
+import KidsNav from "./KidsNav";
+import HomeNav from "./HomeNav";
+import OffersNav from "./OffersNav";
 export default function Navbar() {
 
 
@@ -22,11 +27,85 @@ export default function Navbar() {
                         alt='Lane Attire'
                     />
 
-                    <Heading fontSize='15'>WOMEN</Heading>
-                    <Heading size='sm' fontSize='15'>MEN</Heading>
-                    <Heading size='sm' fontSize='15'>KIDS</Heading>
-                    <Heading size='sm' fontSize='15'>HOME</Heading>
-                    <Heading size='sm' fontSize='15' color="red.500">OFFERS</Heading>
+                    <Box><Menu >
+                        {({ isOpen }) => (
+                            <>
+                                <MenuButton size='sm' fontSize='15'
+                                    isActive={isOpen} as={Heading} rightIcon={<ChevronDownIcon />}>
+                                    WOMEN
+
+
+                                </MenuButton>
+                                <MenuList color="gray.500" border="none" bg={"rgb(238,238,238)"}>
+                                    <WomenNav />
+                                </MenuList>
+                            </>
+                        )}
+                    </Menu></Box>
+
+                    <Box ><Menu>
+                        {({ isOpen }) => (
+                            <>
+                                <MenuButton size='sm' fontSize='15'
+                                    isActive={isOpen} as={Heading} rightIcon={<ChevronDownIcon />}>
+                                    MEN
+
+
+                                </MenuButton>
+                                <MenuList color="gray.500" border="none" bg={"rgb(238,238,238)"}>
+                                    <MenNav />
+                                </MenuList>
+                            </>
+                        )}
+                    </Menu></Box>
+                    {/* <Heading size='sm' fontSize='15'>MEN</Heading> */}
+                    <Box><Menu>
+                        {({ isOpen }) => (
+                            <>
+                                <MenuButton size='sm' fontSize='15'
+                                    isActive={isOpen} as={Heading} rightIcon={<ChevronDownIcon />}>
+                                    KIDS
+
+
+                                </MenuButton>
+                                <MenuList color="gray.500" border="none" bg={"rgb(238,238,238)"}>
+                                    <KidsNav />
+                                </MenuList>
+                            </>
+                        )}
+                    </Menu></Box>
+                    {/* <Heading size='sm' fontSize='15'>KIDS</Heading> */}
+                    <Box><Menu>
+                        {({ isOpen }) => (
+                            <>
+                                <MenuButton size='sm' fontSize='15'
+                                    isActive={isOpen} as={Heading} rightIcon={<ChevronDownIcon />}>
+                                    HOME
+
+
+                                </MenuButton>
+                                <MenuList color="gray.500" border="none" bg={"rgb(238,238,238)"}>
+                                    <HomeNav />
+                                </MenuList>
+                            </>
+                        )}
+                    </Menu></Box>
+                    <Box><Menu>
+                        {({ isOpen }) => (
+                            <>
+                                <MenuButton size='sm' fontSize='15' color="red.500"
+                                    isActive={isOpen} as={Heading} rightIcon={<ChevronDownIcon />}>
+                                    OFFERS
+
+
+                                </MenuButton>
+                                <MenuList>
+                                    <OffersNav />
+                                </MenuList>
+                            </>
+                        )}
+                    </Menu></Box>
+
 
                 </HStack>
 

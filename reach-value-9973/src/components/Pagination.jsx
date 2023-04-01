@@ -3,7 +3,7 @@ import { Box, Button } from "@chakra-ui/react";
 function Pagination({ current, IncRease, DecRease, total }) {
     const prev = (
         <Button
-            disabled={current === 1}
+            disabled={+current == 1}
             onClick={DecRease}
         >
             Prev
@@ -13,7 +13,7 @@ function Pagination({ current, IncRease, DecRease, total }) {
     const next = (
         <Button
             data-testid="next-page"
-            disabled={current === total}
+            disabled={+current == +total}
             onClick={IncRease}
         >
             Next
