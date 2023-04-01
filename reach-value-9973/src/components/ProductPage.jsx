@@ -8,17 +8,17 @@ import {
 import axios from "axios"
 import React, { useEffect, useState } from "react";
 import { RxDoubleArrowRight } from "react-icons/rx"
-import Navbar from "./Navbar";
-import ProductBadge from "./ProductBadge"
 import Filter from "./Filter";
 import BadgeSlickSlider from "./badgeSlickSlider";
 import ProductCard from "./ProductCard";
 import Pagination from "./Pagination";
+import { useParams } from "react-router-dom";
 export default function ProductPage() {
     const [data, SetData] = useState([]);
     const [page, setPage] = useState(1);
     const [totalPage, setTotalPage] = useState(0)
-
+    const [loading, setLoading] = useState(false);
+    const { category } = useParams();
     const IncRease = () => {
         setPage(page + 1)
     }
@@ -27,24 +27,26 @@ export default function ProductPage() {
     }
 
     const FetchData = (n) => {
-        axios.get(`https://uptight-ray-blazer.cyclic.app/Men?_limit=15&_page=${n}`)
+        setLoading(true)
+        axios.get(`https://lane-attire-product-api.onrender.com/Men?_limit=15&_page=${n}&q=${category}`)
             .then((data) => {
                 SetData(data.data)
                 let totPage = Math.ceil((data.headers["x-total-count"]) / 15);
                 setTotalPage(totPage)
+                setLoading(true)
             })
     }
     useEffect(() => {
-        console.log("re render")
         FetchData(page)
-        return ""
+
     }, [page])
+
+
     return <>
 
         <Box bgColor={"rgb(238,238,238)"}>
             <Flex letterSpacing={1} >
                 <Box
-                    //  border={"1px"} 
                     borderColor="red"
                     w={"310px"} ml={3} mr={3} position={"fixed"} top={20} >
                     <VStack>
@@ -65,11 +67,9 @@ export default function ProductPage() {
 
 
                 <Box
-                    //  border={"1px"}
                     borderColor="green" w={"75%"} marginLeft={"350px"} position={"static"} top={20} >
                     <Box>
                         <Box
-                            // border={"1px solid purple"}
                             marginBottom={5}
                             mt={5}
                             fontSize={12} color={"gray.500"}>
@@ -89,8 +89,7 @@ export default function ProductPage() {
                         </Box>
                         {/* --------- breadCrump end*/}
                         <Box
-                            // style={{ width: "50%" }}
-                            // border={"1px solid purple"}
+
                             mb={2}
 
                         >
@@ -101,15 +100,13 @@ export default function ProductPage() {
                     {/* -----mainDiv */}
 
                     <Center
-                        //  border={"1px solid red"}
                         style={{ position: "sticky" }}
                         mt={10}
                     >
-
                         <SimpleGrid columns={[2, null, 3]} spacing='40px' rowGap={18}>
-                            {
-                                data?.map((ele, ind) => <ProductCard key={ind} {...ele} />)
-                            }
+
+                            {data?.map((ele, ind) => <ProductCard key={ind} {...ele} />)}
+
 
                         </SimpleGrid>
                     </Center>

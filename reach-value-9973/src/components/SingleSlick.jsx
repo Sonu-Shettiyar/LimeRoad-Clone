@@ -3,14 +3,14 @@ import "./SingleSlick.module.css"
 import Slider from "react-slick";
 let arr = ["https://img3.junaroad.com/uiproducts/18291072/zoom_0-1646810576.jpg",
     "https://img3.junaroad.com/uiproducts/18291072/zoom_0-1646810576.jpg", "https://img3.junaroad.com/uiproducts/18291072/zoom_0-1646810576.jpg", "https://img3.junaroad.com/uiproducts/18291072/zoom_0-1646810576.jpg"]
-export default function SingleSlick() {
+export default function SingleSlick({ image }) {
 
 
     const settings = {
         customPaging: function (i) {
             return (
                 <a>
-                    <img src={`${arr[0]}`} />
+                    <img src={`${image}`} />
                 </a>
             );
         },
@@ -25,18 +25,18 @@ export default function SingleSlick() {
         <Box id="SingleSlick" style={{ width: "700px" }} >
             <Slider {...settings} border={"1px solid green"} style={{ padding: "1%" }}>
                 <div>
-                    <img src={`${arr[0]}`} style={{ width: "95%" }} />
+                    <img src={`${image}`} style={{ width: "95%" }} />
                 </div>
                 <div>
-                    <img src={`${arr[0]}`} style={{ width: "95%" }} />
+                    <img src={`${image}`} style={{ width: "95%" }} />
                 </div>
                 <div>
-                    <img src={`${arr[0]}`} style={{ width: "95%" }} />
+                    <img src={`${image}`} style={{ width: "95%" }} />
 
 
                 </div>
                 <div>
-                    <img src={`${arr[0]}`} style={{ width: "95%" }} />
+                    <img src={`${image}`} style={{ width: "95%" }} />
 
 
                 </div>

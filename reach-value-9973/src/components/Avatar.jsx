@@ -9,6 +9,7 @@ import {
     Container, Divider
 
 } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 
 export default function AvatarPic({ data }) {
 
@@ -26,10 +27,11 @@ export default function AvatarPic({ data }) {
             {
                 data?.map((ele, ind) => {
                     return <WrapItem key={ind} >
-                        <VStack ml={4}>
-                            <Avatar size={"lg"} name={ele.title} src={ele.profileFilterCircle} />
-                            <Text fontSize={12}>{ele.title}</Text>
-                        </VStack>
+                        <Link to={`/productPageCat/${ele.title}`}>
+                            <VStack ml={4}>
+                                <Avatar size={"lg"} name={ele.title} src={ele.profileFilterCircle} />
+                                <Text fontSize={12}>{ele.title}</Text>
+                            </VStack></Link>
                     </WrapItem>
                 })
             }

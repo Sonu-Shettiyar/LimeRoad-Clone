@@ -5,15 +5,13 @@ import MainContainer from "./components/MainContainer"
 import Navbar from './components/Navbar';
 import ProductPage from './components/ProductPage';
 import SingleProductPage from './components/SingleProductPage';
+import AllRoutes from './components/AllRoutes';
 function App() {
   return (
     <div className="App">
       <Navbar />
 
-      {/* <MainContainer /> */}
-      {/* <ProductPage /> */}
-      <SingleProductPage />
-
+      <AllRoutes />
 
     </div>
   );
