@@ -2,32 +2,31 @@
 import { Box, Button } from "@chakra-ui/react";
 function Pagination({ current, IncRease, DecRease, total }) {
     const prev = (
-        <Button
+        <button
             disabled={+current == 1}
             onClick={DecRease}
         >
             Prev
-        </Button>
+        </button>
     );
     const currentPage = <Button>{current}</Button>;
     const next = (
-        <Button
-            data-testid="next-page"
-            disabled={+current == +total}
+        <button
+            disabled={+current >= + total}
             onClick={IncRease}
         >
             Next
-        </Button>
+        </button >
     );
     return (
-        <Box mt={15}>
+        <Box mt={15} gap={9}>
             <div>
                 {prev}
                 {currentPage}
                 {next}
             </div>
             <div>
-                Total Pages: <b>{total}</b>
+                Seeing results: {current} of {total} Pages
             </div>
         </Box>
     );

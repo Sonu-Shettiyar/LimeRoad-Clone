@@ -1,24 +1,30 @@
 
-import React from "react";
+import { Divider, Box, Skeleton, HStack, VStack, Stack, Center, SimpleGrid } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import AvatarPic from "./Avatar";
+import LandingCards from "./LandingCards";
 import PauseOnHover from "./SlickSlider";
+import React from 'react';
+import axios from 'axios';
+import SkeletonLoading from "./SkeletonLoading"
+
 
 const avatarData = [
     {
         "profileFilterCircle": "https:\/\/img0.junaroad.com\/images\/icons\/women\/kurtas.png",
-        "title": "kurtas"
+        "title": "kurta"
     },
     {
         "profileFilterCircle": "https:\/\/img0.junaroad.com\/images\/icons\/women\/tops.png",
-        "title": "tops"
+        "title": "top"
+    },
+    {
+        "profileFilterCircle": "https:\/\/img0.junaroad.com\/images\/icons\/women\/sarees.png",
+        "title": "saree"
     },
     {
         "profileFilterCircle": "https:\/\/img0.junaroad.com\/images\/icons\/women\/dresses.png",
         "title": "dresses"
-    },
-    {
-        "profileFilterCircle": "https:\/\/img0.junaroad.com\/images\/icons\/women\/sarees.png",
-        "title": "sarees"
     },
     {
         "profileFilterCircle": "https:\/\/img0.junaroad.com\/images\/icons\/women\/suits.png",
@@ -47,12 +53,32 @@ const avatarData = [
         "title": "WINTER"
     }
 ]
+
 export default function WomenContainer() {
+    const [womenData, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
+    function FetchwoMenData() {
+        setLoading(true)
+        axios.get(`https://lane-attire-product-api.onrender.com/WomenLanding`)
+            .then((ele) => {
+
+                setData(ele.data)
+                setLoading(false)
+            })
+    }
+    useEffect(() => {
+        FetchwoMenData();
+    }, [])
 
     return (
         <>
             <AvatarPic data={avatarData} />
             <PauseOnHover />
+            {loading && <SkeletonLoading />}
+            <Center mt={20}>
+
+                <LandingCards key={1} data={womenData} />
+            </Center>
         </>
     )
 }

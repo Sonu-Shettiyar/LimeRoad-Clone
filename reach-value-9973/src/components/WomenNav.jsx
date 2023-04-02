@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom";
 import "./navbar.css";
 import { MenuItem, MenuList, Box, Flex, Center, Container, SimpleGrid } from "@chakra-ui/react"
 
@@ -8,19 +9,22 @@ export default function WomenNav() {
         <SimpleGrid columns={[2, null, 3]} spacing='40px' p={10} pt={3}>
             <MenuList border={"none"}>
 
-                <MenuItem color="black" fontSize="lg"><b>Women's Clothing</b></MenuItem>
+                <Link to={"/productPageCat/women"}>
+                    <MenuItem color="black" fontSize="lg"><b>Women's Clothing</b></MenuItem>
 
-                <MenuItem >Bras, Panties & Lingeries</MenuItem>
+                </Link>
+                <Link to={"/productPageCat/saree"}><MenuItem >Sarees</MenuItem></Link>
+                <Link to={"/productPageCat/kurta"}><MenuItem >Kurtas</MenuItem></Link>
                 <MenuItem >Coats & Outerwear</MenuItem>
-                <MenuItem >Dresses</MenuItem>
+                <Link to={"/login"}><MenuItem >Dresses</MenuItem></Link>
                 <MenuItem >Pants & Leggins</MenuItem>
                 <MenuItem >Sweaters</MenuItem>
                 <MenuItem >Shop Al...</MenuItem>
             </MenuList>
             <MenuList>
 
-                <MenuItem color="black" fontSize="lg"><b>Women's Top</b></MenuItem>
-                <MenuItem >Blouses</MenuItem>
+                <Link to={"/productPageCat/top"}>  <MenuItem color="black" fontSize="lg"><b>Women's Top</b></MenuItem></Link>
+                <Link to={"/productPageCat/top"}>     <MenuItem >Trending Tops</MenuItem></Link>
                 <MenuItem >Button Down Tops</MenuItem>
                 <MenuItem >Hoodies & Sweatshirts</MenuItem>
                 <MenuItem >Tunics</MenuItem>

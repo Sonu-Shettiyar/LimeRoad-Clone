@@ -2,7 +2,6 @@ import { Divider, Box, Skeleton, HStack, VStack, Stack, Center, SimpleGrid } fro
 import { useEffect, useState } from "react";
 import AvatarPic from "./Avatar";
 import LandingCards from "./LandingCards";
-import LandingPageCard from "./LandingPageCard";
 import PauseOnHover from "./SlickSlider";
 import React from 'react';
 import axios from 'axios';
@@ -13,21 +12,21 @@ import SkeletonLoading from "./SkeletonLoading"
 const avatarData = [
     { profileFilterCircle: 'https://img0.junaroad.com/images/icons/men/tshirts.png', title: 'Tshirt', id: 1 }
     ,
-    { profileFilterCircle: 'https://img0.junaroad.com/images/icons/men/shirts.png', title: 'Shirts', id: 2 }
-    ,
     { profileFilterCircle: 'https://img0.junaroad.com/images/icons/men/jeans.png', title: 'Jeans', id: 3 }
     ,
+    { profileFilterCircle: 'https://img0.junaroad.com/images/icons/men/accessory.png', title: 'Watch', id: 9 },
+
+    { profileFilterCircle: 'https://img0.junaroad.com/images/icons/men/footwear.png', title: 'Shoes', id: 6 },
     { profileFilterCircle: 'https://img0.junaroad.com/images/icons/men/trousers.png', title: 'Trousers', id: 4 }
     ,
     { profileFilterCircle: 'https://img0.junaroad.com/images/icons/men/ethnicsets.png', title: 'Ethnic sets', id: 5 }
-    ,
-    { profileFilterCircle: 'https://img0.junaroad.com/images/icons/men/footwear.png', title: 'Footwear', id: 6 }
     ,
     { profileFilterCircle: 'https://img0.junaroad.com/images/icons/men/kids.png', title: 'Kids', id: 7 }
     ,
     { profileFilterCircle: 'https://img0.junaroad.com/images/icons/women/home.png', title: 'Home', id: 8 }
     ,
-    { profileFilterCircle: 'https://img0.junaroad.com/images/icons/men/accessory.png', title: 'Accessories', id: 9 }
+
+    { profileFilterCircle: 'https://img0.junaroad.com/images/icons/men/shirts.png', title: 'Shirts', id: 2 }
     ,
     { profileFilterCircle: 'https://img0.junaroad.com/images/icons/men/winter.png', title: 'Winter', id: 10 }
 ]
@@ -36,7 +35,7 @@ export default function MenContainer() {
     const [loading, setLoading] = useState(false);
     function FetchMenData() {
         setLoading(true)
-        axios.get(`https://uptight-ray-blazer.cyclic.app/MenLanding`)
+        axios.get(`https://lane-attire-product-api.onrender.com/MenLanding`)
             .then((ele) => {
 
                 setData(ele.data)

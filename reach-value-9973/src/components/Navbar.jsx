@@ -4,11 +4,14 @@ import { PhoneIcon, AddIcon, WarningIcon, Search2Icon, ChevronDownIcon } from '@
 import { AiOutlineBook } from "react-icons/ai";
 import { GiShoppingCart } from "react-icons/gi";
 import { RiAccountCircleLine } from "react-icons/ri";
+import Account from "./Acccount";
 import WomenNav from "./WomenNav";
 import MenNav from "./MenNav";
 import KidsNav from "./KidsNav";
 import HomeNav from "./HomeNav";
+import DrawerExample from "./CartPage"
 import OffersNav from "./OffersNav";
+import { Link } from "react-router-dom"
 export default function Navbar() {
 
 
@@ -19,13 +22,12 @@ export default function Navbar() {
             <Flex minWidth='100%' pr='20' pl='90' pt='0' alignItems='center' gap='2'>
 
                 <HStack gap={"33px"}>
-                    <img
-                        // boxSize='100px'
-                        // objectFit='cover'
-                        width={150}
-                        src="./images/LaneLogoCropped.png"
-                        alt='Lane Attire'
-                    />
+                    <Link to={"/"} >
+                        <img
+                            width={150}
+                            src="./images/LaneLogoCropped.png"
+                            alt='Lane Attire'
+                        /></Link>
 
                     <Box><Menu >
                         {({ isOpen }) => (
@@ -127,9 +129,7 @@ export default function Navbar() {
 
 
                     <VStack pt={3}>
-                        {/* <Search2Icon boxSize={5} /> */}
                         <Search2Icon fontSize={20} />
-
                         <Text fontSize="11">
 
                             SEARCH
@@ -137,7 +137,8 @@ export default function Navbar() {
                     </VStack>
 
                     <VStack pt={2} >
-                        <GiShoppingCart fontSize={26} />
+                        {/* <GiShoppingCart fontSize={26} /> */}
+                        <DrawerExample />
                         <Text fontSize="11">
                             CART
                         </Text>
@@ -145,10 +146,10 @@ export default function Navbar() {
 
                     <VStack pt={2} >
                         <RiAccountCircleLine fontSize={26} />
-
-                        <Text fontSize="11">
+                        <Account />
+                        {/* <Text fontSize="11">
                             PROFILE
-                        </Text>
+                        </Text> */}
                     </VStack>
 
 
