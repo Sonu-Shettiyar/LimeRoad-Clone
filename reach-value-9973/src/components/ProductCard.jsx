@@ -21,7 +21,7 @@ export default function ProductCard({ brand, discount, category, id, image, mrp,
                             textTransform='uppercase'
                             ml='1'
                         >
-                            <Heading fontSize={22} color={"blackAlpha.700"} mr={2}>₹ {price}</Heading> <Text mr={2} color="gray.500" style={{ textDecoration: "line-through" }}>₹{mrp}</Text> <Text mr={2} color="green.300" textDecoration={"line-through"}>{discount}</Text>
+                            <Heading fontSize={22} color={"blackAlpha.700"} mr={2}>₹ {price}</Heading> <Text mr={2} color="gray.500" style={{ textDecoration: "line-through" }}>₹{mrp}</Text> <Text mr={2} color="green.300" >{discount}</Text>
 
                         </Box>
                     </Box>

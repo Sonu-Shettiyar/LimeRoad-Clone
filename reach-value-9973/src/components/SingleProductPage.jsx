@@ -1,22 +1,26 @@
 import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Flex, HStack, Heading, SimpleGrid, Tab, TabList, TabPanel, TabPanels, Tabs, VStack, Text, Button, Badge } from "@chakra-ui/react";
-import { RxDoubleArrowRight } from "react-icons/rx";
+import { BsChevronRight } from "react-icons/bs";
 import SingleSlick from "./SingleSlick";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { AiOutlineHeart } from "react-icons/ai"
 import SingleProductCard from "./SingleProductCard"
 import { Link, useParams } from "react-router-dom";
-
-
+import ToastExample from "./toast";
+import { useToast } from '@chakra-ui/react'
+import { Navigate } from "react-router-dom";
+import { AuthContext } from "./AuthContext";
+import { useContext } from "react";
 export default function SingleProductPage() {
-
-    // do fetch with categroy with data you are getting as prop fro similar contern
+    const toast = useToast()
+    const { isAuth } = useContext(AuthContext);
     const [similar, setSimilar] = useState([]);
     const [casual, setCasual] = useState([]);
     const [formal, SetFormal] = useState([]);
     const [singleData, setSingleData] = useState([]);
     const { Product_id } = useParams();
-
+    const [btnText, setBtnText] = useState("ADD TO CART")
+    const [navState, setNavState] = useState(false)
 
     const FetchSimilarData = (category) => {
 
@@ -39,6 +43,7 @@ export default function SingleProductPage() {
             .then((data) => setSingleData(data.data))
     }
 
+
     useEffect(() => {
         SingleData(Product_id)
     }, [Product_id])
@@ -53,6 +58,40 @@ export default function SingleProductPage() {
         FetchSimilarData(category)
     }, [category])
 
+    const AddToCart = () => {
+        if (!isAuth) {
+            toast({
+                title: "Not Logged In",
+                description: "Please login for Proceeding",
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+            })
+            setNavState(true)
+            return;
+        }
+        fetch('https://lane-attire-product-api.onrender.com/cartItems', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(singleData)
+        }).then((res) => {
+            toast({
+                title: title.toUpperCase(),
+                description: "Added to Cart Succesfully",
+                status: 'success',
+                duration: 3000,
+                isClosable: true,
+            })
+            setBtnText("ADDED TO CART")
+        })
+
+    }
+    if (navState) {
+        return <Navigate to="/login" />
+    }
+
     return (<Box
         width={"80%"} margin={"auto"}>
 
@@ -60,7 +99,7 @@ export default function SingleProductPage() {
 
             mt={5}
             fontSize={13} color={"gray.500"}>
-            <Breadcrumb spacing='8px' separator={<RxDoubleArrowRight color='gray.100' mt={9} />}>
+            <Breadcrumb spacing='8px' separator={<BsChevronRight color='gray.100' mt={9} />}>
                 <BreadcrumbItem>
                     <Link to="/"> <BreadcrumbLink >Home</BreadcrumbLink></Link>
                 </BreadcrumbItem>
@@ -138,9 +177,9 @@ export default function SingleProductPage() {
             <Box
                 //  border={"5px solid red"} 
                 lineHeight={10} fontSize={18} width={"50%"} textAlign={"left"} ml={4} mt={2} pl={2}>
-                <Heading>{title}</Heading>
-                <Text>Brand By {brand}</Text>
-                <Flex justifyContent={"space-around"}>
+                <Heading >{title?.toUpperCase()}</Heading>
+                <Text> By {brand}</Text>
+                <Flex justifyContent={"space-between"}>
                     <p>4.0 ⭐⭐⭐⭐</p>
                     <p>🛡️100% Trusted</p>
                 </Flex>
@@ -151,7 +190,7 @@ export default function SingleProductPage() {
                     <HStack m={"25px"}>
                         <Button variant='outline' disabled>36</Button>
                         <Button variant='outline' disabled>38</Button>
-                        <Button variant='outline'>40</Button>
+                        <Button variant='outline' >40</Button>
                         <Button variant='outline' >42</Button>
                         <Button variant='outline' >44</Button>
                         <Button variant='outline' disabled>46</Button>
@@ -160,13 +199,13 @@ export default function SingleProductPage() {
                 </Box>
                 <Flex>
                     <Box>
-                        <Text>MRP : Mrp</Text>
-                        <Text>Price : Mrp</Text>
-                        <Text>You Save : Mrp - price</Text>
+                        <Text>MRP : {mrp} Rs</Text>
+                        <Text>Price : {price} Rs</Text>
+                        <Text>You Save : {mrp} Rs - {price} Rs</Text>
                         <p style={{ color: "grey" }}>M.R.P. inclusive of all taxes</p>
                     </Box>
                     <Box>
-                        <Badge variant='outline' color='green.300' >
+                        <Badge color='green.300' >
                             OFFER
                         </Badge>
                         <Text color='green.300'>Pay Online & Get Flat 10% OFF</Text>
@@ -174,7 +213,7 @@ export default function SingleProductPage() {
                 </Flex>
                 <HStack mt={5}>
                     <Button w={"15%"} fontSize={38} p={30} bgColor='green.300' ><AiOutlineHeart /></Button>
-                    <Button w={"95%"} fontSize={25} p={30} bgColor='green.300' > ADD TO CART</Button>
+                    <Button w={"95%"} fontSize={25} p={30} bgColor='green.300' onClick={AddToCart} > {btnText}</Button>
                 </HStack>
                 <Box mt={10}>
                     <Tabs align='end' variant='line'>
@@ -238,7 +277,7 @@ export default function SingleProductPage() {
                         <Text fontSize={"sm"}>country of origin : <span style={{ color: "black" }}>India</span></Text>
                         <Text fontSize={"sm"}>length : <span style={{ color: "black" }}>small, medium, large</span></Text>
                         <Text fontSize={"sm"}>care : <span style={{ color: "black" }}>see above</span></Text>
-                        <Text fontSize={"sm"}>product code : <span style={{ color: "black" }}>{Math.random()}{id}</span></Text>
+                        <Text fontSize={"sm"}>product code : <span style={{ color: "black" }}>{"2Sd49"}{id}</span></Text>
                     </VStack>
                 </Box>
 

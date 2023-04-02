@@ -8,7 +8,7 @@ export default function MainContainer() {
 
     return (
         <div style={{ backgroundColor: "rgba(169, 154, 154, 0.08)" }}>
-            <div style={{ border: '1px solid red', width: "70%", margin: "auto", marginBottom: "0px" }}>
+            <div style={{ width: "70%", margin: "auto", marginBottom: "0px" }}>
 
 
                 <Tabs

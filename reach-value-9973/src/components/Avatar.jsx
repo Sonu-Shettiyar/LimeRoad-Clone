@@ -16,12 +16,13 @@ export default function AvatarPic({ data }) {
     return (
 
         <Wrap ml={20} >
-
             <WrapItem>
-                <VStack borderRight='1px' borderColor={'green.500'} h={70} pr={4}>
-                    <Avatar size={"lg"} color={"red.100"} name='Man Ybrahmov' src='https:/.ly/dan-abramov' />
-                    <Text fontSize={12}>MY FEED</Text>
-                </VStack>
+                <Link to="/ProductPage">
+                    <VStack borderRight='1px' borderColor={'green.500'} h={70} pr={4}>
+                        <Avatar size={"lg"} color={"red.100"} name='Man Ybrahmov' src='https:/.ly/dan-abramov' />
+                        <Text fontSize={12}>MY FEED</Text>
+                    </VStack>
+                </Link>
             </WrapItem>
 
             {
