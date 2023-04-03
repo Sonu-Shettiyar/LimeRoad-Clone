@@ -27,18 +27,18 @@ export default function Account() {
 
 
                 <MenuGroup title='Profile'>
-                    <Image
-                        boxSize='2rem'
-                        borderRadius='full'
-                        src='https://placekitten.com/120/120'
-                        alt='Simon the pensive'
+                    <Flex m={[3, null, 2]} justify="space-between">
+                        <Image
+                            boxSize='2rem'
+                            borderRadius='full'
+                            src='https://placekitten.com/120/120'
+                            alt='Simon the pensive'
 
-                    />
-                    {/* <Flex m={3}>
-                        <Text>name</Text>
-                        <Text>Sign Up </Text>
-                    </Flex> */}
-                    {isAuth ? <Text>{User.name}</Text> : <Login />}
+                        />
+                        {/* <Text>name</Text>
+                        <Text>Sign Up </Text> */}
+                        {isAuth ? <Text>{User.name}</Text> : <Login />}
+                    </Flex>
 
                     <MenuItem>My Account</MenuItem>
                     <MenuItem>Payments </MenuItem>
