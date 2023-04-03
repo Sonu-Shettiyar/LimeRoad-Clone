@@ -15,9 +15,12 @@ import axios from "axios"
 import { PhoneIcon, AddIcon, WarningIcon, Search2Icon, ChevronDownIcon } from '@chakra-ui/icons'
 import CartItemsCard from './CartItemsCard';
 import Delivery from './Delivery';
+import { useToast } from '@chakra-ui/react'
+
 export default function DrawerExample() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = React.useRef()
+    const toast = useToast()
     const [cartData, setCartData] = useState([]);
     const [mrP, setMrp] = useState(0);
     const [pricE, setPrice] = useState(0);
@@ -35,24 +38,10 @@ export default function DrawerExample() {
 
             }
         }).then((data) => {
-            toast({
-                title: 'Removed Succesfully',
-                description: "product removed from the cart.",
-                status: 'success',
-                duration: 3000,
-                isClosable: true,
-            })
+
         })
 
-            .catch((err) => {
-                toast({
-                    title: 'Something went wrong.',
-                    description: "Unable to remove item",
-                    status: 'error',
-                    duration: 3000,
-                    isClosable: true,
-                })
-            })
+
     }
 
     const GetPrice = () => {

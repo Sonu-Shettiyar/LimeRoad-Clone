@@ -17,11 +17,11 @@ export default function Navbar() {
 
 
     return (
-        <Box position={"sticky"} bgColor={"white"} top={0} zIndex={9999} width="100%" border='1px' borderColor='gray.200' mt={0} boxShadow='rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;'>
+        <Box position={["sticky"]} bgColor={"white"} top={0} zIndex={9999} width={["50%", '80%', '100%']} border='1px' borderColor='gray.200' mt={0} boxShadow='rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;'>
 
-            <Flex minWidth='100%' pr='20' pl='90' pt='0' alignItems='center' gap='2'>
+            <Flex maxWidth={'100%'} pr={['5', '10', '20']} pl={['5', '10', '20']} pt='0' alignItems='center' gap={[1, null, 2]}>
 
-                <HStack gap={"33px"}>
+                <HStack gap={["5px", '10px', '33px']}>
                     <Link to={"/"} >
                         <img
                             width={150}
@@ -32,7 +32,7 @@ export default function Navbar() {
                     <Box><Menu >
                         {({ isOpen }) => (
                             <>
-                                <MenuButton size='sm' fontSize='15'
+                                <MenuButton size='sm' fontSize={['8', '10', '12', '15']}
                                     isActive={isOpen} as={Heading} rightIcon={<ChevronDownIcon />}>
                                     WOMEN
 

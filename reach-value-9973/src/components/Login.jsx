@@ -37,7 +37,7 @@ export default function Login() {
     const [overlay, setOverlay] = React.useState(<OverlayOne />)
     useEffect(() => {
         setTimeout(() => {
-            isOpen
+
             onOpen();
         }, 5000)
     }, [])
