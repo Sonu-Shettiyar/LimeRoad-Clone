@@ -224,10 +224,10 @@ export default function SingleProductPage() {
                         </TabList>
                         <TabPanels>
                             <TabPanel>
-                                <img style={{ width: "100%" }} src="./images/CentiMeter.png" />
+                                <img style={{ width: "100%" }} src="/images/CentiMeter.png" />
                             </TabPanel>
                             <TabPanel>
-                                <img style={{ width: "100%" }} src="./images/inInches.png" />
+                                <img style={{ width: "100%" }} src="/images/inInches.png" />
 
                             </TabPanel>
                         </TabPanels>

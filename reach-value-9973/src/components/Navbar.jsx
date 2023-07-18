@@ -25,7 +25,7 @@ export default function Navbar() {
                     <Link to={"/"} >
                         <img
                             width={150}
-                            src="./images/LaneLogoCropped.png"
+                            src="/images/LaneLogoCropped.png"
                             alt='Lane Attire'
                         /></Link>
 
@@ -33,7 +33,7 @@ export default function Navbar() {
                         {({ isOpen }) => (
                             <>
                                 <MenuButton size='sm' fontSize={['8', '10', '12', '15']}
-                                    isActive={isOpen} as={Heading} rightIcon={<ChevronDownIcon />}>
+                                    isactive={isOpen} as={Heading} rightIcon={<ChevronDownIcon />}>
                                     WOMEN
 
 
@@ -49,7 +49,7 @@ export default function Navbar() {
                         {({ isOpen }) => (
                             <>
                                 <MenuButton size='sm' fontSize='15'
-                                    isActive={isOpen} as={Heading} rightIcon={<ChevronDownIcon />}>
+                                    isactive={isOpen} as={Heading} rightIcon={<ChevronDownIcon />}>
                                     MEN
 
 
@@ -65,7 +65,7 @@ export default function Navbar() {
                         {({ isOpen }) => (
                             <>
                                 <MenuButton size='sm' fontSize='15'
-                                    isActive={isOpen} as={Heading} rightIcon={<ChevronDownIcon />}>
+                                    isactive={isOpen} as={Heading} rightIcon={<ChevronDownIcon />}>
                                     KIDS
 
 
@@ -81,7 +81,7 @@ export default function Navbar() {
                         {({ isOpen }) => (
                             <>
                                 <MenuButton size='sm' fontSize='15'
-                                    isActive={isOpen} as={Heading} rightIcon={<ChevronDownIcon />}>
+                                    isactive={isOpen} as={Heading} rightIcon={<ChevronDownIcon />}>
                                     HOME
 
 
@@ -96,7 +96,7 @@ export default function Navbar() {
                         {({ isOpen }) => (
                             <>
                                 <MenuButton size='sm' fontSize='15' color="red.500"
-                                    isActive={isOpen} as={Heading} rightIcon={<ChevronDownIcon />}>
+                                    isactive={isOpen} as={Heading} rightIcon={<ChevronDownIcon />}>
                                     OFFERS
 
 

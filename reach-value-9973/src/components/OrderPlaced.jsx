@@ -49,9 +49,14 @@ export default function OrderPlaced() {
 
     }, [])
     if (redirect.length != 0) {
-        redirect.forEach((ele, ind) => {
-            deleteItems(ele.id)
-        })
+        // redirect.forEach((ele, ind) => {
+        //     deleteItems(ele.id)
+        // })
+        setTimeout(() => {
+            redirect.forEach((ele, ind) => {
+                deleteItems(ele.id)
+            })
+        }, 1000)
         setTimeout(() => {
 
             return <Navigate to="/" />

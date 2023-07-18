@@ -36,12 +36,12 @@ export default function Delivery({ text }) {
                     <ModalBody pb={6}>
                         <FormControl>
                             <FormLabel>City & State:</FormLabel>
-                            <Input ref={initialRef} placeholder='First name' />
+                            <Input ref={initialRef} placeholder='Your Address' isRequired />
                         </FormControl>
 
                         <FormControl mt={4}>
                             <FormLabel>Mobile Number :</FormLabel>
-                            <Input placeholder='Mobile Number' type="number" />
+                            <Input placeholder='Mobile Number' type="number" isRequired/>
 
                             <Text mb='8px'>Detail Address :</Text>
                             <Textarea
