@@ -1,7 +1,7 @@
-## Lane Attire Documentation
+## Lane Attire 
 
 ### Introduction
-Hello Everyone! This documentation provides an overview of Lane Attire, an individual project developed during the Construct Week at Masai School. Lane Attire is a clone of LimeRoad.com, an E-commerce website that offers a wide range of fashion clothing products and accessories. The project was completed within a span of 5 days, and it showcases the usage of various technologies, including JavaScript, HTML, CSS, and the React framework. Additionally, libraries such as react-router-dom and Chakra UI were utilized to enhance the functionality and aesthetics of the site.
+Hello Everyone! This documentation provides an overview of Lane Attire, an individual project developed during Construct Week at Masai School. Lane Attire is a clone of LimeRoad.com, an E-commerce website that offers a wide range of fashion clothing products and accessories. The project was completed within a span of 5 days, and it showcases the usage of various technologies, including JavaScript, HTML, CSS, and the React framework. Additionally, libraries such as react-router-dom and Chakra UI were utilized to enhance the functionality and aesthetics of the site.
 
 ### Project Details
 - Project Name: Lane Attire
