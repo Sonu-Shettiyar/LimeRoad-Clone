@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
-import { Navigate } from 'react-router-dom';
 import { createContext } from 'react';
 import { useToast } from '@chakra-ui/react'
 export const AuthContext = createContext();
 
-// console.log(AuthContext)
 const AuthContextProvider = ({ children }) => {
     const [isAuth, setIsAuth] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [User, setUser] = useState({})
-    const toast = useToast()
+    const toast = useToast();
+    
     function CallLogin(e) {
         e.preventDefault();
         login(email, password);
@@ -27,7 +26,7 @@ const AuthContextProvider = ({ children }) => {
             }).catch((err) => {
 
                 toast({
-                    title: "Check your Credentials",
+                    title: err.message || "Check your Credentials",
                     description: "Please login for Proceeding",
                     status: 'error',
                     duration: 3000,

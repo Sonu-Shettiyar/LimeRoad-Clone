@@ -34,23 +34,23 @@ export default function Delivery({ text }) {
                     <ModalHeader>Shipment Address :</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody pb={6}>
-                        <FormControl>
+                        <FormControl isRequired>
                             <FormLabel>City & State:</FormLabel>
-                            <Input ref={initialRef} placeholder='Your Address' isRequired />
+                        <Input ref={initialRef} placeholder='Your Address' isRequired />
                         </FormControl>
 
-                        <FormControl mt={4}>
+                        <FormControl mt={4} isRequired>
                             <FormLabel>Mobile Number :</FormLabel>
                             <Input placeholder='Mobile Number' type="number" isRequired/>
 
-                            <Text mb='8px'>Detail Address :</Text>
+                            <Text mb='8px' isRequired>Detail Address :</Text>
                             <Textarea
 
                                 placeholder='Provide your delivery address......'
                                 size='sm'
                             />
                         </FormControl>
-                        <FormControl mt={4}>
+                        <FormControl mt={4} isRequired>
                             <FormLabel>Pay through :</FormLabel>
                             <Radio mr={3} id="radio" name="payment">
                                 UPI
@@ -63,9 +63,6 @@ export default function Delivery({ text }) {
                     </ModalBody>
 
                     <ModalFooter>
-                        {/* <Button onClick={onOpen}>Pay</Button> */}
-
-
                         <Button onClick={onClose}><OrderPlaced /></Button>
                     </ModalFooter>
                 </ModalContent>

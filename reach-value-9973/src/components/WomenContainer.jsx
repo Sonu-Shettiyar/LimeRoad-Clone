@@ -61,7 +61,6 @@ export default function WomenContainer() {
         setLoading(true)
         axios.get(`https://lane-attire-product-api.onrender.com/WomenLanding`)
             .then((ele) => {
-
                 setData(ele.data)
                 setLoading(false)
             })

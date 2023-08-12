@@ -12,18 +12,15 @@ export default function CartItemsCard({ title, brand, price, image, id, handleDe
 
     >
         <Image
-            // objectFit='cover'
             maxW={{ base: '40%', sm: '20' }}
             h={20}
-            src={`${image}`}            // src='https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60'
+            src={`${image}`}
             alt={brand}
         />
 
         <Stack>
             <CardBody>
-                <Heading size='sm'>The perfect latte</Heading>
-
-
+                <Heading size='sm'>{title}</Heading>
                 <Flex fontSize={10} p={0} justify={"space-between"} align={"center"} variant='outline' colorScheme='dark'>
                     <Text fontSize={12}> ₹ {price}</Text> <IconButton
                         variant='outline'

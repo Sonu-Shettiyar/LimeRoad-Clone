@@ -1,5 +1,5 @@
 
-import { Box, Stack, Badge } from "@chakra-ui/react";
+import {Badge } from "@chakra-ui/react";
 import React from "react";
 export default function ProductBadge({ data }) {
 

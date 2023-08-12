@@ -6,21 +6,18 @@ import {
     DrawerOverlay,
     DrawerContent,
     DrawerCloseButton,
-    Box, Text, Divider, Flex
+    Box, Text, Divider, Flex, Image
 } from '@chakra-ui/react';
 import React, { useEffect, useState } from "react"
-import { useDisclosure, Input, Button } from "@chakra-ui/react";
+import { useDisclosure } from "@chakra-ui/react";
 import { GiShoppingCart } from "react-icons/gi";
 import axios from "axios"
-import { PhoneIcon, AddIcon, WarningIcon, Search2Icon, ChevronDownIcon } from '@chakra-ui/icons'
 import CartItemsCard from './CartItemsCard';
 import Delivery from './Delivery';
-import { useToast } from '@chakra-ui/react'
 
 export default function DrawerExample() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = React.useRef()
-    const toast = useToast()
     const [cartData, setCartData] = useState([]);
     const [mrP, setMrp] = useState(0);
     const [pricE, setPrice] = useState(0);
@@ -30,15 +27,11 @@ export default function DrawerExample() {
     }
 
     function handleDelete(id) {
-        console.log("working")
         fetch(`https://lane-attire-product-api.onrender.com/cartItems/${id}`, {
-            method: "Delete",
+            method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
-
             }
-        }).then((data) => {
-
         })
 
 
@@ -65,7 +58,7 @@ export default function DrawerExample() {
     return (
         <Box >
 
-            < GiShoppingCart ref={btnRef} colorScheme='teal' onClick={onOpen} fontSize={26} />
+            <GiShoppingCart ref={btnRef} colorScheme='teal' onClick={onOpen} fontSize={26} />
 
             <Drawer
                 isOpen={isOpen}
@@ -77,20 +70,23 @@ export default function DrawerExample() {
                 <DrawerContent mt={20} mr={5}>
                     <DrawerCloseButton />
                     <DrawerHeader>Your Cart items</DrawerHeader>
-
                     <DrawerBody>
                         {
-                            cartData.length == 0 ? <Text>Your Cart is Empty !</Text> : cartData?.map((ele, ind) => {
+                            cartData.length === 0 ? (<>
+                                <hr />
+                                <Image mt={"100px"} src="https://cdn.dribbble.com/users/2059463/screenshots/4828452/polizas_gif.gif" alt="Empty" width={"100%"} />
+                                <Text textAlign={"center"}>Your Cart is Empty !</Text>
+                            </>
+                            ) : cartData?.map((ele, ind) => {
                                 return <CartItemsCard {...ele} handleDelete={handleDelete} key={ind} />
-
                             })
                         }
                     </DrawerBody>
                     <Divider />
-                    <Box ml={5} mr={5} mb={0}>
+                    {cartData.length > 0 && <><Box ml={5} mr={5} mb={0}>
                         <Flex fontWeight={500} justify={"space-between"}>
                             <Text >Total Price :</Text>
-                            {mrP}Rs
+                            {mrP} Rs
                         </Flex>
 
                         <Flex fontWeight={500} justify={"space-between"}>
@@ -107,10 +103,9 @@ export default function DrawerExample() {
                             <Text fontSize={"lg"} fontWeight={700}>Grand Total :</Text> {pricE} Rs
                         </Flex>
                     </Box >
-                    <DrawerFooter >
-                        {/* <Button  >Proceed to Payment</Button> */}
-                        <Delivery text={"Proceed to Payment"} />
-                    </DrawerFooter>
+                        <DrawerFooter >
+                            <Delivery text={"Proceed to Payment"} />
+                        </DrawerFooter></>}
                 </DrawerContent>
             </Drawer>
         </Box >
