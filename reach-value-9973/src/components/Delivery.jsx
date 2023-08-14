@@ -6,7 +6,7 @@ import {
     ModalFooter,
     ModalBody,
     ModalCloseButton,
-    Button, Input, Text, Textarea, Radio
+    Button, Input, Text, Textarea, Radio, useToast
 } from '@chakra-ui/react'
 import React from 'react'
 import { useDisclosure, FormControl, FormLabel } from '@chakra-ui/react'
@@ -17,7 +17,7 @@ export default function Delivery({ text }) {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [city, setCity] = React.useState(false);
     const [numbeR, setNumber] = React.useState(false);
-    const [method, setMethod] = React.useState(false);
+    const toast = useToast();
 
 
 
@@ -25,15 +25,16 @@ export default function Delivery({ text }) {
     const finalRef = React.useRef(null)
     const navigate = useNavigate();
     const handlePay = () => {
+        toast({
+            title: "Order Succesfully Placed....",
+            description: "",
+            status: 'success',
+            duration: 2000,
+            isClosable: true,
+        })
+        navigate("/");
+        onClose();
 
-        if (city && numbeR) {
-
-            alert("Order Succesfully Placed....")
-            navigate("/");
-            onClose();
-        } else {
-            alert("Please provide details....")
-        }
     }
 
     return (
@@ -82,7 +83,7 @@ export default function Delivery({ text }) {
                     </ModalBody>
 
                     <ModalFooter>
-                        <Button onClick={handlePay}><OrderPlaced /></Button>
+                        {(city&&numbeR) && <Button onClick={handlePay}><OrderPlaced /></Button>}
                     </ModalFooter>
                 </ModalContent>
             </Modal >

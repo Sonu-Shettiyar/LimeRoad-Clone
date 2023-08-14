@@ -10,6 +10,8 @@ export default function ToastExample() {
                     status: 'success',
                     duration: 9000,
                     isClosable: true,
+                     
+
                 })
             }
         >

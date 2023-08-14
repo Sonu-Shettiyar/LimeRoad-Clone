@@ -30,7 +30,7 @@ function Pagination({ current, IncRease, DecRease, total }) {
                     </div>
                 </>
             ) : (
-                <Text>Your search ends here!..</Text>
+                <Text>Sorry, No more products...</Text>
             )}
         </Box>
     );

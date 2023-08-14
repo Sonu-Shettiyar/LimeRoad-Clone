@@ -31,6 +31,7 @@ export default function SignUp() {
                 title: "Registered Succesfully",
                 description: "Please login for Proceeding",
                 status: 'success',
+                 
                 duration: 4000,
                 isClosable: true,
             })

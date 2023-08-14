@@ -9,7 +9,7 @@ const AuthContextProvider = ({ children }) => {
     const [password, setPassword] = useState("");
     const [User, setUser] = useState({})
     const toast = useToast();
-    
+
     function CallLogin(e) {
         e.preventDefault();
         login(email, password);
@@ -20,9 +20,16 @@ const AuthContextProvider = ({ children }) => {
         fetch(`https://lane-attire-product-api.onrender.com/users?q=${email}`)
             .then((res) => res.json())
             .then((data) => {
-                console.log(data)
                 setIsAuth(data[0].password == password)
                 setUser(data[0])
+                toast({
+                    title: "login succesfull",
+                    description: "",
+                    status: 'success',
+                     
+                    duration: 2000,
+                    isClosable: true,
+                })
             }).catch((err) => {
 
                 toast({
@@ -30,6 +37,7 @@ const AuthContextProvider = ({ children }) => {
                     description: "Please login for Proceeding",
                     status: 'error',
                     duration: 3000,
+                     
                     isClosable: true,
                 })
             })

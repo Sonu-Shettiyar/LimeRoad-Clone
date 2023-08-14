@@ -39,28 +39,28 @@ export default function OrderPlaced() {
             })
 
     }, [])
-    // if (redirect.length != 0) {
-    //     // redirect.forEach((ele, ind) => {
-    //     //     deleteItems(ele.id)
-    //     // })
-    //     setTimeout(() => {
-    //         redirect.forEach((ele, ind) => {
-    //             deleteItems(ele.id)
-    //         })
-    //     }, 1000)
-    //     setTimeout(() => {
+    if (redirect.length != 0) {
+        // redirect.forEach((ele, ind) => {
+        //     deleteItems(ele.id)
+        // })
+        redirect.forEach((ele, ind) => {
+        setTimeout(() => {
+                deleteItems(ele.id)
+            }, 2000)
+        })
+        // setTimeout(() => {
 
-    //         return <Navigate to="/" />
-    //     }, 4000)
+        //     return <Navigate to="/" />
+        // }, 4000)
 
-    // }
+    }
     return (
         <>
             <Button
-                // onClick={onOpen}
+                onClick={onOpen}
             >Pay</Button>
 
-            <Modal onClose={onClose} bgColor="red" isOpen={isOpen} isCentered>
+            <Modal   bgColor="red" isOpen={isOpen} isCentered>
                 <ModalOverlay />
                 <ModalContent>
                     <ModalHeader>Successfull !</ModalHeader>
@@ -84,9 +84,9 @@ export default function OrderPlaced() {
                                 Have a nice day
                             </AlertDescription>
                         </Alert>
+                        <Button onClick={onClose}>Close</Button>
                     </ModalBody>
                     <ModalFooter>
-                        <Button onClick={onClose}>Close</Button>
                     </ModalFooter>
                 </ModalContent>
             </Modal>

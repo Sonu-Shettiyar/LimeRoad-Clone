@@ -64,6 +64,8 @@ export default function SingleProductPage() {
                 title: "Not Logged In",
                 description: "Please login for Proceeding",
                 status: 'error',
+                 
+
                 duration: 3000,
                 isClosable: true,
             })
@@ -81,6 +83,7 @@ export default function SingleProductPage() {
                 title: title.toUpperCase(),
                 description: "Added to Cart Succesfully",
                 status: 'success',
+                 
                 duration: 3000,
                 isClosable: true,
             })
