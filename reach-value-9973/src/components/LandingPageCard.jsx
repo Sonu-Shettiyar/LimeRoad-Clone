@@ -1,6 +1,6 @@
 import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Flex, Box, VStack, Image, HStack, Stack, Avatar } from '@chakra-ui/react'
 import { Link, Navigate } from "react-router-dom"
-export default function LandingPageCard({ createdBy, createdByImage, followers, heading, landingImage, like }) {
+export default function LandingPageCard({ createdBy, image, createdByImage, followers, heading, landingImage, like }) {
 
     return (
 
@@ -20,7 +20,7 @@ export default function LandingPageCard({ createdBy, createdByImage, followers, 
                 justify='space-between'
                 flexWrap='wrap' >
                 <img
-                    width={"100%"} src={landingImage}
+                    width={"100%"} src={image ? image : landingImage}
                     alt={heading}
                 />
                 <Flex gap='2' alignItems='center' flexWrap='wrap'>

@@ -1,5 +1,5 @@
 import {
-    Box, Container, Flex, VStack, Text, Heading, Breadcrumb,
+    Box, Flex, VStack, Text, Heading, Breadcrumb,
     BreadcrumbItem,
     BreadcrumbLink,
     Center,
@@ -15,7 +15,6 @@ import Pagination from "./Pagination";
 import { Link, useParams } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "./AuthContext";
-import { Navigate } from "react-router-dom";
 export default function ProductPage() {
     const { isAuth } = useContext(AuthContext)
     const [data, SetData] = useState([]);
@@ -103,7 +102,7 @@ export default function ProductPage() {
 
                                 <BreadcrumbItem>
                                     <Link to="/productPage">
-                                        <BreadcrumbLink >{data[0]?.gender}</BreadcrumbLink>
+                                        <BreadcrumbLink >{data[0]?.gender==="men"?"Men":"Women"}</BreadcrumbLink>
 
                                     </Link>
                                 </BreadcrumbItem>

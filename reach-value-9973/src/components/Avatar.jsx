@@ -1,12 +1,10 @@
 import {
-    Avatar, AvatarBadge,
+    Avatar,
     Text,
-    AvatarGroup,
     Wrap,
     WrapItem,
     VStack,
-    Center,
-    Container, Divider
+    Divider
 
 } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
@@ -24,7 +22,6 @@ export default function AvatarPic({ data }) {
                     </VStack>
                 </Link>
             </WrapItem>
-
             {
                 data?.map((ele, ind) => {
                     return <WrapItem key={ind} >
@@ -36,9 +33,7 @@ export default function AvatarPic({ data }) {
                     </WrapItem>
                 })
             }
-
             <Divider border={"none"} p={2} />
-
         </Wrap>
     )
 }

@@ -28,15 +28,6 @@ export default function OrderPlaced() {
     const { current } = useRef([])
 
 
-    // if (redirect) {
-    //     toast({
-    //         title: "Redirecting...",
-    //         description: "redirecting to homepage",
-    //         status: 'success',
-    //         duration: 4000,
-    //         isClosable: true,
-    //     })
-    // }
     const deleteItems = (id) => {
         axios.delete(`https://lane-attire-product-api.onrender.com/cartItems/${id}`)
     }
@@ -48,24 +39,26 @@ export default function OrderPlaced() {
             })
 
     }, [])
-    if (redirect.length != 0) {
-        // redirect.forEach((ele, ind) => {
-        //     deleteItems(ele.id)
-        // })
-        setTimeout(() => {
-            redirect.forEach((ele, ind) => {
-                deleteItems(ele.id)
-            })
-        }, 1000)
-        setTimeout(() => {
+    // if (redirect.length != 0) {
+    //     // redirect.forEach((ele, ind) => {
+    //     //     deleteItems(ele.id)
+    //     // })
+    //     setTimeout(() => {
+    //         redirect.forEach((ele, ind) => {
+    //             deleteItems(ele.id)
+    //         })
+    //     }, 1000)
+    //     setTimeout(() => {
 
-            return <Navigate to="/" />
-        }, 4000)
+    //         return <Navigate to="/" />
+    //     }, 4000)
 
-    }
+    // }
     return (
         <>
-            <Button onClick={onOpen}>Pay</Button>
+            <Button
+                // onClick={onOpen}
+            >Pay</Button>
 
             <Modal onClose={onClose} bgColor="red" isOpen={isOpen} isCentered>
                 <ModalOverlay />
