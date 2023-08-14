@@ -65,7 +65,7 @@ export default function Login() {
                                 setEmail(e.target.value)
                             }} />
                             <FormLabel>Password</FormLabel>
-                            <Input placeholder='Enter password' value={password} onChange={(e) => { setPassword(e.target.value) }} />
+                            <Input placeholder='Enter password' value={password} onChange={(e) => { setPassword(e.target.value) }} type="password" />
                             <Text align="end" color="blue.600" >Forget Password ?</Text>
                             <Button mt={"9%"} bgColor="green.300" mb={"9%"} w={"100%"} onClick={CallLogin}>Login</Button>
                         </FormControl>

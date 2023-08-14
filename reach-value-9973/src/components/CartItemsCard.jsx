@@ -8,10 +8,11 @@ export default function CartItemsCard({ title, brand, price, image, id, handleDe
         direction={{ base: 'column', sm: 'row' }}
         overflow='hidden'
         variant='outline'
-        h={20}
+        // h={20}
 
     >
         <Image
+            m="auto"
             maxW={{ base: '40%', sm: '20' }}
             h={20}
             src={`${image}`}
@@ -33,11 +34,11 @@ export default function CartItemsCard({ title, brand, price, image, id, handleDe
                 </Flex>
             </CardBody>
 
-            <CardFooter>
+            {/* <CardFooter>
                 <Button variant='outline' colorScheme='dark' onClick={() => handleDelete(id)}>
                     Remove
                 </Button>
-            </CardFooter>
+            </CardFooter> */}
         </Stack>
     </Card >
 }

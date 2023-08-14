@@ -10,13 +10,31 @@ import {
 } from '@chakra-ui/react'
 import React from 'react'
 import { useDisclosure, FormControl, FormLabel } from '@chakra-ui/react'
-import OrderPlaced from './OrderPlaced'
+import OrderPlaced from './OrderPlaced';
+import { useNavigate } from "react-router-dom";
 
 export default function Delivery({ text }) {
     const { isOpen, onOpen, onClose } = useDisclosure()
+    const [city, setCity] = React.useState(false);
+    const [numbeR, setNumber] = React.useState(false);
+    const [method, setMethod] = React.useState(false);
+
+
 
     const initialRef = React.useRef(null)
     const finalRef = React.useRef(null)
+    const navigate = useNavigate();
+    const handlePay = () => {
+
+        if (city && numbeR) {
+
+            alert("Order Succesfully Placed....")
+            navigate("/");
+            onClose();
+        } else {
+            alert("Please provide details....")
+        }
+    }
 
     return (
         <>
@@ -36,12 +54,13 @@ export default function Delivery({ text }) {
                     <ModalBody pb={6}>
                         <FormControl isRequired>
                             <FormLabel>City & State:</FormLabel>
-                        <Input ref={initialRef} placeholder='Your Address' isRequired />
+                            <Input ref={initialRef} onChange={(e) => setCity(true)} placeholder='Your Address' isRequired />
                         </FormControl>
-
-                        <FormControl mt={4} isRequired>
+                        <FormControl isRequired>
                             <FormLabel>Mobile Number :</FormLabel>
-                            <Input placeholder='Mobile Number' type="number" isRequired/>
+                            <Input placeholder='Mobile Number'
+                                onChange={(e) => setNumber(true)}
+                                type="text" isRequired />
 
                             <Text mb='8px' isRequired>Detail Address :</Text>
                             <Textarea
@@ -63,10 +82,10 @@ export default function Delivery({ text }) {
                     </ModalBody>
 
                     <ModalFooter>
-                        <Button onClick={onClose}><OrderPlaced /></Button>
+                        <Button onClick={handlePay}><OrderPlaced /></Button>
                     </ModalFooter>
                 </ModalContent>
-            </Modal>
+            </Modal >
         </>
     )
 }

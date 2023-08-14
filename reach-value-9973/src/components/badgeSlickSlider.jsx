@@ -1,12 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import Slider from "react-slick";
 import ProductBadge from "./ProductBadge";
 import { Box } from "@chakra-ui/react";
 
 export default function BadgeSlickSlider({ data }) {
-
-    var settings = {
-
+    const settings = {
         infinite: false,
         speed: 500,
         slidesToShow: 10,
@@ -39,39 +37,32 @@ export default function BadgeSlickSlider({ data }) {
             }
         ]
     };
-    let categoryData = data.map((ele) => ele.category)
-    let brandData = data.map((ele) => ele.brand)
-    let uniqueData = {}
-    let filCategory = categoryData.map((element) => {
-        if (uniqueData[element] == undefined) {
-            uniqueData[element] = 1;
-            return element;
-        }
 
-    })
-    let filBrand = brandData.map((element) => {
-        if (uniqueData[element] == undefined) {
-            uniqueData[element] = 1;
-            return element;
+    const uniqueData = {};
+
+    data.forEach((ele) => {
+        if (ele.category && !uniqueData[ele.category]) {
+            uniqueData[ele.category] = true;
         }
-    })
-    let uniqueArr = []
-    for (let key in uniqueData) {
-        if (key !== "undefined") {
-            uniqueArr.push(key)
+        if (ele.brand && !uniqueData[ele.brand]) {
+            uniqueData[ele.brand] = true;
         }
-    }
+    });
+
+    const uniqueArr = Object.keys(uniqueData).filter(key => key !== "undefined");
 
     return (
-        <Box style={{ padding: { base: "12px", sm: "4px", md: "8px" }, marginLeft: "30px", width: { base: "1300px", sm: "500px", md: "950px" } }}>
-            <Slider {...settings}  >
-                {
-
-                    uniqueArr.map((ele, ind) => {
-                        return <ProductBadge key={ind} data={ele
-                        } />
-                    })}
-
+        <Box
+            style={{
+                padding: { base: "12px", sm: "4px", md: "8px" },
+                marginLeft: "30px",
+                width: { base: "1300px", sm: "500px", md: "950px" }
+            }}
+        >
+            <Slider {...settings}>
+                {uniqueArr.map((ele, ind) => (
+                    <ProductBadge key={ind} data={ele} />
+                ))}
             </Slider>
         </Box>
     );

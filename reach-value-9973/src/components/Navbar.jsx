@@ -33,7 +33,7 @@ export default function Navbar() {
                         {({ isOpen }) => (
                             <>
                                 <MenuButton size='sm' fontSize={['8', '10', '12', '15']}
-                                    isactive={isOpen} as={Heading} rightIcon={<ChevronDownIcon />}>
+                                    isactive={isOpen} as={Heading} righticon={<ChevronDownIcon />}>
                                     WOMEN
 
 
@@ -49,7 +49,7 @@ export default function Navbar() {
                         {({ isOpen }) => (
                             <>
                                 <MenuButton size='sm' fontSize='15'
-                                    isactive={isOpen} as={Heading} rightIcon={<ChevronDownIcon />}>
+                                    isactive={isOpen} as={Heading} righticon={<ChevronDownIcon />}>
                                     MEN
 
 
@@ -65,7 +65,7 @@ export default function Navbar() {
                         {({ isOpen }) => (
                             <>
                                 <MenuButton size='sm' fontSize='15'
-                                    isactive={isOpen} as={Heading} rightIcon={<ChevronDownIcon />}>
+                                    isactive={isOpen} as={Heading} righticon={<ChevronDownIcon />}>
                                     KIDS
 
 
@@ -81,7 +81,7 @@ export default function Navbar() {
                         {({ isOpen }) => (
                             <>
                                 <MenuButton size='sm' fontSize='15'
-                                    isactive={isOpen} as={Heading} rightIcon={<ChevronDownIcon />}>
+                                    isactive={isOpen} as={Heading} righticon={<ChevronDownIcon />}>
                                     HOME
 
 
@@ -96,7 +96,7 @@ export default function Navbar() {
                         {({ isOpen }) => (
                             <>
                                 <MenuButton size='sm' fontSize='15' color="red.500"
-                                    isactive={isOpen} as={Heading} rightIcon={<ChevronDownIcon />}>
+                                    isactive={isOpen} as={Heading} righticon={<ChevronDownIcon />}>
                                     OFFERS
 
 
